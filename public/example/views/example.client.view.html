@@ -1,0 +1,106 @@
+<section ng-controller="ExampleController">
+  <div data-ng-show="!authentication.user">
+  	<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Prueba</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">     
+      <ul class="nav navbar-nav navbar-right">
+    		<li><a href="/signup">Registrarse</a></li>
+    		<li><a href="/signin">Iniciar sesión</a></li>      
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+  </div>
+  <div data-ng-show="authentication.user">
+  	<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Prueba</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">         
+      <ul class="nav navbar-nav navbar-right">        
+        <li class="dropdown">
+          <a href="#!" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          	<i class="fa fa-user fa-fw"></i>{{authentication.user.fullName}}<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">     
+          	<li><a href="#">Configuración</a></li>       
+            <li role="separator" class="divider"></li>
+            <li><a href="/signout">Cerrar Sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+<div class="container">
+	<div class="page-header">
+  		<h1>Configuración<small></small></h1>
+	</div>    
+    <div class="col-md-3">
+    <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Artículos</div>
+  <!-- List group -->
+  <ul class="list-group">
+  	<a href="/#!/articles/create" class="list-group-item"><small><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; Crear</small></a>
+    <a href="/#!/articles" class="list-group-item"><small><i class="fa fa-bars" aria-hidden="true"></i>&nbsp; Listar</small></a>    
+  </ul>
+</div> 
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Sedes</div>
+  <!-- List group -->
+  <ul class="list-group">
+  	<a href="/#!/sedes/create" class="list-group-item"><small><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; Crear</small></a>    
+    <a href="/#!/sedes" class="list-group-item"><small><i class="fa fa-bars" aria-hidden="true"></i>&nbsp; Listar</small></a>    
+  </ul>
+</div>
+   <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Clientes</div>
+  <!-- List group -->
+  <ul class="list-group">
+  	    <a href="/#!/clientes/create" class="list-group-item"><small><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; Crear</small></a>
+    <a href="/#!/clientes" class="list-group-item"><small><i class="fa fa-bars" aria-hidden="true"></i>&nbsp; Listar</small></a>
+  </ul>
+</div>   
+    <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Productos</div>
+  <!-- List group -->
+  <ul class="list-group">
+  	    <a href="/#!/productos/create" class="list-group-item"><small><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; Crear</small></a>
+    <a href="/#!/productos" class="list-group-item"><small><i class="fa fa-bars" aria-hidden="true"></i>&nbsp; Listar</small></a>
+  </ul>
+</div>    
+   <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Compras</div>
+  <!-- List group -->
+  <ul class="list-group">
+  	<a href="/#!/compras/create" class="list-group-item"><small><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; Crear</small></a>
+    <a href="/#!/compras" class="list-group-item"><small><i class="fa fa-bars" aria-hidden="true"></i>&nbsp; Listar</small></a>    
+  </ul>
+</div>
+  </div>
+  </div>
+  <div class="col-md-9">
+  </div>
+  </div>
+</section>

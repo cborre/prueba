@@ -1,0 +1,68 @@
+<!-- La view editar sede -->
+<section data-ng-controller="SedesController" data-ng-init="findOne()">
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Prueba</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">         
+      <ul class="nav navbar-nav navbar-right">        
+        <li class="dropdown">
+          <a href="#!" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          	<i class="fa fa-user fa-fw"></i>{{authentication.user.fullName}}<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">     
+          	<li><a href="#!">Configuración</a></li>       
+            <li role="separator" class="divider"></li>
+            <li><a href="/signout">Cerrar Sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+<div class="container">
+<div class="page-header">
+  		<h1>Artículo <small>Eliminar</small></h1>
+</div>
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<div class="panel panel-default">                           
+                            <div class="panel-body">
+	<!-- Formulario eliminar sede -->
+	<form data-ng-submit="delete()" novalidate>
+		<div class="form-group">
+			<label for="sede">Creado:</label>
+            <input type="text" data-ng-model="article.creado" id="creado" placeholder="Creado" class="form-control" disabled>
+		</div>
+		<div class="form-group">
+			<label for="direccion">Titulo:</label>
+			<input type="text" data-ng-model="article.titulo" id="titulo" placeholder="Titulo" class="form-control" disabled>			
+		</div>
+        <div class="form-group">
+			<label for="direccion">Contenido:</label>
+			<input type="text" data-ng-model="article.contenido" id="contenido" placeholder="Contenido" class="form-control" disabled>			
+		</div>
+        <div class="form-group">
+            <!-- El elemento mensaje error -->
+            <div data-ng-show="error" class="alert alert-danger">
+                <strong data-ng-bind="error"></strong>
+            </div>
+        </div>        
+		<div class="form-group pull-right">
+			<input type="submit" value="Eliminar" class="btn btn-success">
+            <a href="#!" class="btn btn-info">Cancelar</a>
+		</div>		
+	</form>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</section>

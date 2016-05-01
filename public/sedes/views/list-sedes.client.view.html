@@ -1,0 +1,79 @@
+<!-- La view listar sedes -->
+<section data-ng-controller="SedesController" data-ng-init="find()">
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Prueba</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">         
+      <ul class="nav navbar-nav navbar-right">        
+        <li class="dropdown">
+          <a href="#!" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          	<i class="fa fa-user fa-fw"></i>{{authentication.user.fullName}}<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">     
+          	<li><a href="#!">Configuración</a></li>       
+            <li role="separator" class="divider"></li>
+            <li><a href="/signout">Cerrar Sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+<div class="container">
+	<div class="page-header">
+  		<h1>Sede <small>Listado</small></h1>
+</div> 
+  <!-- Table -->
+  <table class="table table-striped">
+        <thead>
+            <tr>
+                <th width="40%">Sede</th>
+                <th width="42%">Dirección</th>
+                <th width="*">Acción</th>
+            </tr>
+        </thead>
+        <tbody>                        
+                <tr data-ng-repeat="sede in sedes">
+                    <td>
+                        <a data-ng-href="#!/sedes/{{sede._id}}" data-ng-bind="sede.sede"></a>
+                    </td>
+                    <td>
+                        <p data-ng-bind="sede.direccion"></p>
+                    </td>
+                    <td>
+                        <a href="/#!/sedes/{{sede._id}}/edit" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i>&nbsp; Editar</a>
+                        <a href="/#!/sedes/{{sede._id}}/delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>&nbsp; Borrar</a>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+    <div class="pull-right"><a href="#!" class="btn btn-info">Volver</a></div>
+	<!--<ul>		
+		<li data-ng-repeat="sede in sedes">
+			<a data-ng-href="#!/sedes/{{sede._id}}" data-ng-bind="sede.sede"></a>
+			<br>
+			<!--<small data-ng-bind="sede.creado | date:'medium'"></small>
+			<small>/</small>
+			<small data-ng-bind="sede.creador.fullName"></small>
+			<p data-ng-bind="sede.direccion"></p>
+			<!-- Mostrar los botones de edición para sede creado -->
+    <!--<p data-ng-show="authentication.user._id == sede.creador._id">
+        <a href="/#!/sedes/{{sede._id}}/edit">editar</a>
+        <a href="/#!/sedes/{{sede._id}}/delete">borrar</a>
+        <!--</p>
+		</li>
+	</ul>-->
+	<!-- Si no hay sedes en la lista, sugire al usuario que cree una nueva sede -->
+	<div data-ng-hide="!sedes || sedes.length">
+		Aún no hay sedes, porque no creas <a href="/#!/sedes/create">el primero</a>?
+	</div>
+</div>
+</section>

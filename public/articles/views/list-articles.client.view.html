@@ -1,0 +1,82 @@
+<!-- La view listar artículos -->
+<section data-ng-controller="ArticlesController" data-ng-init="find()">
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Prueba</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">         
+      <ul class="nav navbar-nav navbar-right">        
+        <li class="dropdown">
+          <a href="#!" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          	<i class="fa fa-user fa-fw"></i>{{authentication.user.fullName}}<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">     
+          	<li><a href="#!">Configuración</a></li>       
+            <li role="separator" class="divider"></li>
+            <li><a href="/signout">Cerrar Sesión</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+<div class="container">
+	<div class="page-header">
+  		<h1>Artículos <small>Listado</small></h1>
+</div> 
+  <!-- Table -->
+  <table class="table table-striped">
+        <thead>
+            <tr>
+                <th width="27%">Creado</th>
+                <th width="27%">Titulo</th>
+                <th width="28%">Contenido</th>
+                <th width="*">Acción</th>
+            </tr>
+        </thead>
+        <tbody>                        
+                <tr data-ng-repeat="article in articles">
+                    <td>
+                        <a data-ng-href="#!/articles/{{article._id}}" data-ng-bind="article.creado"></a>
+                    </td>
+                    <td>
+                        <p data-ng-bind="article.titulo"></p>
+                    </td>
+                    <td>
+                        <p data-ng-bind="article.contenido"></p>
+                    </td>
+                    <td>
+                        <a href="/#!/articles/{{article._id}}/edit" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i>&nbsp; Editar</a>
+                        <a href="/#!/articles/{{article._id}}/delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>&nbsp; Borrar</a>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+	<!--<ul>		
+		<li data-ng-repeat="article in articles">
+			<a data-ng-href="#!/articles/{{article._id}}" data-ng-bind="article.titulo"></a>
+			<br>
+			<small data-ng-bind="article.creado | date:'medium'"></small>
+			<small>/</small>
+			<small data-ng-bind="article.creador.fullName"></small>
+			<p data-ng-bind="article.contenido"></p>
+			<!-- Mostrar los botones de edición para artículo creado 
+            <p data-ng-show="authentication.user._id == article.creador._id">
+                <a href="/#!/articles/{{article._id}}/edit">editar</a>
+                <a href="/#!/articles/{{article._id}} data-ng-click="delete();">borrar</a>
+            </p>
+		</li>
+	</ul>
+	<!-- Si no hay artículos en la lista, sugire al usuario que cree un nuevo artículo -->
+	<div data-ng-hide="!articles || articles.length">
+		Aún no hay artículos, porque no creas <a href="/#!/articles/create">el primero</a>?
+	</div>
+</div>
+</section>

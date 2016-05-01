@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<!-- Usar la propiedad 'title' para renderizar un titulo de página -->
+		<title><%= title %></title>
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="lib/bootstrap-social/bootstrap-social.css">
+		<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+	</head>
+<body>	
+	<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Prueba</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">     
+      <ul class="nav navbar-nav navbar-right" data-ng-show="!authentication.user">
+    		<li><a href="/signup">Registrarse</a></li>
+    		<li><a href="/signin">Iniciar sesión</a></li>      
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+	<!-- Mostrar mensajes Flash -->
+	<% for(var i in messages) { %>
+		<div class="flash alert alert-danger"><%= messages[i] %></div>
+	<% } %>
+	
+	<!-- Renderizar el formulario signin -->
+	<!-- <form action="/signin" method="post">
+		<div>
+			<label>Usuario:</label>
+			<input type="text" name="username" />
+		</div>
+		<div>
+			<label>Contraseña:</label>
+			<input type="password" name="password" />
+		</div>
+		<div>			
+			<input type="submit" value="Identificarse" />
+		</div>
+	</form>
+	<a href="/auth/google">Identificarse usando Google</a>
+	-->	
+	<div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">					
+                        <div class="login-panel panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Iniciar sesión</h3>
+                            </div>
+                            <div class="panel-body">
+                                <form action="/signin" method="post">                                
+                                    <a class="btn btn-block btn-social btn-facebook">
+                                        <i class="fa fa-facebook"></i> Conéctate con Facebook
+                                    </a>
+                                    <a class="btn btn-block btn-social btn-google" href="/auth/google">
+                                        <i class="fa fa-google"></i> Conéctate con Google +
+                                    </a>       
+                                    <br/>									
+                                    <small><p class="text-center"> o introduce tu </p></small>
+                                    <br/>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Usuario" type="text" name="username" autofocus>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Contraseña" type="password" name="password" id="password">
+                                    </div>
+									<!-- Mostrar mensajes Flash -->
+	<% for(var i in messages) { %>
+		<div class="flash alert alert-danger"><%= messages[i] %></div>
+	<% } %>
+                                    <small><p class="text-right"><a href="#">¿Has olvidado tu contraseña?</a></p></small>                             
+                                    <!--<div class="checkbox">                                
+                                        <label>
+                                            <input name="remember" type="checkbox" value="Remember Me">
+                                            Mantener sesión iniciada
+                                        </label>                                     
+                                    </div>-->
+                                    <!-- Change this to a button or input when using this as a form -->   
+									<input type="submit" value="Iniciar sesión" class="btn btn-lg btn-info btn-block" />                           
+                                    <br/>
+                                    <small>¿No te has registrado todavia? <strong><a href="/signup" class="pull-right">Registrate</a><strong></small>                                
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>

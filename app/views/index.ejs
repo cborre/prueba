@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Usar la propiedad 'title' para renderizar un título de página  -->
+	<title><%= title %></title>
+	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="lib/bootstrap-social/bootstrap-social.css">
+	<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">	
+</head>
+<body>
+	<section ng-view></section>
+	<script type="text/javascript">
+    	window.user = <%- user || 'null' %>;
+    </script>
+    
+	<script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+	
+	<script type="text/javascript" src="/lib/angular/angular.js"></script>
+	<script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+	<script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+	
+	<script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>	
+	
+	<script type="text/javascript" src="lib/jspdf/dist/jspdf.min.js"></script>
+		
+	<script type="text/javascript" src="/articles/articles.client.module.js"></script>
+    <script type="text/javascript" src="/articles/controllers/articles.client.controller.js"></script>
+    <script type="text/javascript" src="/articles/services/articles.client.service.js"></script>
+    <script type="text/javascript" src="/articles/config/articles.client.routes.js"></script>	
+	
+	<script type="text/javascript" src="/sedes/sedes.client.module.js"></script>
+    <script type="text/javascript" src="/sedes/controllers/sedes.client.controller.js"></script>
+    <script type="text/javascript" src="/sedes/services/sedes.client.service.js"></script>
+    <script type="text/javascript" src="/sedes/config/sedes.client.routes.js"></script>
+	
+	<script type="text/javascript" src="/clientes/clientes.client.module.js"></script>
+    <script type="text/javascript" src="/clientes/controllers/clientes.client.controller.js"></script>
+    <script type="text/javascript" src="/clientes/services/clientes.client.service.js"></script>
+    <script type="text/javascript" src="/clientes/config/clientes.client.routes.js"></script>
+	
+	<script type="text/javascript" src="/productos/productos.client.module.js"></script>
+    <script type="text/javascript" src="/productos/controllers/productos.client.controller.js"></script>
+    <script type="text/javascript" src="/productos/services/productos.client.service.js"></script>
+    <script type="text/javascript" src="/productos/config/productos.client.routes.js"></script>
+	
+	<script type="text/javascript" src="/compras/compras.client.module.js"></script>
+    <script type="text/javascript" src="/compras/controllers/compras.client.controller.js"></script>
+    <script type="text/javascript" src="/compras/services/compras.client.service.js"></script>
+    <script type="text/javascript" src="/compras/config/compras.client.routes.js"></script>
+	
+	<script type="text/javascript" src="/example/example.client.module.js"></script>
+	<script type="text/javascript" src="/example/controllers/example.client.controller.js"></script>
+	<script type="text/javascript" src="/example/config/example.client.routes.js"></script>
+	
+	<script type="text/javascript" src="/users/users.client.module.js"></script>
+    <script type="text/javascript" src="/users/services/authentication.client.service.js"></script>
+	
+	<script type="text/javascript" src="/application.js"></script>
+</body>
+</html>

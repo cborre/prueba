@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Usar la propiedad 'title' para renderizar un titulo de página -->
+	<title><%=title%></title>
+	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="lib/bootstrap-social/bootstrap-social.css">
+	<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Prueba</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">     
+      <ul class="nav navbar-nav navbar-right" data-ng-show="!authentication.user">
+    		<li><a href="/signup">Registrarse</a></li>
+    		<li><a href="/signin">Iniciar sesión</a></li>      
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+	<div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">					
+                        <div class="panel panel-default">
+                           <!-- <div class="panel-heading">
+                                
+                            </div>-->
+                            <div class="panel-body">							
+	<!-- Renderizar el formulario signup -->
+	<form action="/signup" method="post">
+		<div class="form-group">
+			<h5><p class="text-center">Regístrate con </p></h5>
+			<a class="btn btn-block btn-social btn-google" href="/auth/google"><i class="fa fa-google"></i> Google +</a>
+			</div>
+		<hr/>
+		<div class="form-group">
+			<label>Nombre:</label>
+			<input type="text" name="firstName" class="form-control" placeholder="Nombre" />
+		</div>
+		<div class="form-group">
+			<label>Apellido:</label>
+			<input type="text" name="lastName" class="form-control" placeholder="Apellido"/>
+		</div>
+		<div class="form-group">
+			<label>E-mail:</label>
+			<input type="text" name="email" class="form-control" placeholder="E-mail"/>
+		</div>
+		<div class="form-group">
+			<label>Usuario:</label>
+			<input type="text" name="username" class="form-control" placeholder="Usuario"/>
+		</div>
+		<div class="form-group">
+			<label>Contraseña:</label>
+			<input type="password" name="password" class="form-control" placeholder="Contraseña"/>
+		</div>
+		<div class="form-group">
+			<!-- Mostrar mensajes flash -->
+			<% for(var i in messages) { %>
+				<div class="flash alert alert-danger"><%=messages[i]%></div>
+			<%}%>
+		</div>
+		<div class="form-group">			
+			<input type="submit" value="Regístrate" class="btn btn-lg btn-info btn-block" />
+		</div>
+		<br/>
+		<div class="form-group">
+        	<small>¿Ya eres miembro? <strong><a href="/signin" class="pull-right">Iniciar sesión</a><strong></small>
+		</div>
+	</form>
+	</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>
